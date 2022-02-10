@@ -1,0 +1,19 @@
+.page-link {
+  cursor: pointer;
+  color: #222831 !important;
+}
+
+.page-link:hover,
+.page-link:focus,
+.page-link:active {
+  color: #b84257 !important;
+}
+
+.page-item:hover {
+  background: transparent !important;
+}
+
+/* .pagination{
+    position: fixed;
+    bottom: 0;
+} */

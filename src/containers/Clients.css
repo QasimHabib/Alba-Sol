@@ -1,0 +1,313 @@
+.sidenav{
+    width: 16%;
+}
+
+.clientsMain{
+    width: 100%;
+    background-color: #F5F6F8;
+    padding-bottom: 2%;
+    min-height: 100vh;
+}
+
+th{
+    cursor: pointer;
+}
+
+/* .table-container {
+    max-width: 75% !important;
+    margin: auto;
+} */
+
+.btn:focus,
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+.form-control::placeholder{
+    color: #BBC9DC;
+    font-size: 12px;
+}
+
+input[type = "search"]{
+    /* background-image: url(../src/images/search.svg); */
+    background-repeat: no-repeat;
+    background-position: 15vmax;
+    cursor: pointer;
+}
+
+
+input[type = "search"]:focus,
+input[type = "search"]:active{
+    background-image: none;
+}
+
+.nav-links .nav-link{
+    color: #25283D !important;
+    font-weight: 400;
+}
+
+.nav-links .nav-link:hover,
+.nav-links .nav-link:focus{
+    color: #B84257 !important;
+    font-weight: 600;
+}
+
+.icon1.active,
+.icon2.active,
+.icon3.active,
+.icon4.active,
+.icon5.active,
+.icon6.active,
+.icon7.active{
+    fill: #B84257;
+}
+
+.nav-link-3.active{
+    color: #B84257;
+}
+
+.view, .edit, .delete{
+    cursor: pointer;
+}
+
+.table>:not(:last-child)>:last-child>* {
+border-bottom: none;
+}
+
+tr:not(:last-child){
+    border-bottom: 1px solid #ECEFF3;
+}
+
+
+tr:hover .view{
+    fill: #B84257 !important;
+}
+
+tr:hover .edit{
+    fill: #FBB245 !important;
+}
+
+tr:hover .delete{
+    fill: #FF3A44 !important;
+}
+
+tr:not(.table-head):hover{
+    background-color: #F7F9FA;
+}
+
+/* .sort-desc:after {
+    content: "▼";
+    float: right;
+    cursor: pointer;
+}
+
+.sort-asc::before {
+    content: "▲";
+    float: right;
+    cursor: pointer;
+} */
+
+
+/* tbody{
+    border-radius: 10px;
+    display: table-caption;
+} */
+
+ /* The container */
+.checkGroup {
+display: block;
+position: relative;
+padding-left: 25px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 14px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkGroup input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 16px;
+width: 16px;
+background-color: #fff;
+border-radius: 2px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkGroup:hover input ~ .checkmark {
+background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkGroup input:checked ~ .checkmark {
+background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the checkmark when checked */
+.checkGroup input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkGroup .checkmark:after {
+left: 5px;
+top: 1px;
+width: 6px;
+height: 12px;
+border: solid #B84257;
+border-width: 0 3px 3px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+
+.client-details{
+    display: none;
+}
+
+.clients-table{
+    flex: 1;
+}
+
+.search,
+.search::placeholder{
+    font-size: 14px;
+    color: #BBC9DC;
+    font-weight: 500;
+}
+
+
+.has-search .form-control {
+    padding-left: 14px;
+    background-color: #fff !important;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    top: 35%;
+    right: 3%;
+    display: block;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    pointer-events: none;
+    color: #B84257;
+} 
+
+@media only screen and (max-width: 480px){
+    .sideNavigation{
+        display: none !important;
+    }
+
+    .mobile-nav{
+        display: flex;
+        width: 100%!important;
+        z-index: 100;
+        opacity: 1;
+        background-color: #B84257 !important;
+        color: #fff;
+    }
+
+    .mobile-nav .navbar-toggler{
+        border: none;
+    }
+
+    .mobile-nav .logo{
+        width: 15%;
+    }
+
+    .mobile-nav .navbar-toggler:focus{
+        box-shadow: none !important;
+    }
+
+    .container .pb-3 {
+        padding-top: 4rem!important;
+    }
+
+    .has-search {
+        width: 100%!important;
+        margin-top: 5%;
+    }
+    .container {
+        max-width: 100% !important;
+        margin-left: 1% !important;
+    }
+    .clientsMain .container:first-child {
+        padding-top: 20%;
+    }
+    .secrow {
+        display: block!important;
+    }
+    .clients-table {
+        overflow-x: auto;
+    }
+    .rowmob {
+        flex-direction: column!important;
+    }
+    .client-details {
+        max-width: 100%!important; 
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .sideNavigation{
+        display: none !important;
+    }
+    .mobile-nav{
+        display: flex;
+        width: 100%;
+        z-index: 100;
+        opacity: 1;
+        background-color: #B84257 !important;
+        color: #fff;
+    }
+    .mobile-nav .navbar-toggler{
+        border: none;
+    }
+    .mobile-nav .logo{
+        width: 15%;
+    }
+    .mobile-nav .navbar-toggler:focus{
+        box-shadow: none !important;
+    }
+    .clientsMain .container {
+        margin: auto!important;
+        max-width: 100%;
+        margin-left: 0%;
+    }
+    .panel {
+        display: none!important;
+    }
+    .rowmob {
+        flex-direction: column!important;
+    }
+    .client-details {
+        max-width: 100%!important; 
+    }
+    .clients-table {
+        overflow-x: auto;
+    }
+}

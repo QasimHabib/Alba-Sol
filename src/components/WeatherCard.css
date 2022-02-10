@@ -1,0 +1,90 @@
+.weather-card {
+  background: #f5f6f8;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  padding: 60px 10px 10px 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-card .date {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ffffff;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-weight: 600;
+  color: #5c677b;
+}
+
+.weather-card .weather-icon-big {
+  width: 60px;
+  height: 60px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-card .temperature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.weather-card .temperature .low-high {
+  font-weight: 500;
+  font-size: 22px;
+  color: #2d527c;
+  margin-bottom: 10px;
+}
+
+.weather-card .temperature .desc {
+  font-weight: 500;
+  color: #25283d;
+  margin-bottom: 10px;
+}
+
+.weather-card .hours {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.weather-card .hours .hour {
+  display: flex;
+  align-items: center;
+}
+
+.weather-card .hours .hour .weather-icon-small {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.weather-card .hours .hour span {
+  font-weight: 500;
+  color: #25283d;
+  margin-right: 10px;
+  width: 15%;
+}
+
+.header {
+  background-color: #2D527C;
+}
+
+.header span {
+  color: #fff!important;
+}

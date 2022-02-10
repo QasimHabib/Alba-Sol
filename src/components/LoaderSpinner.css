@@ -1,0 +1,16 @@
+.loader-spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: growAnimation 0.9s ease-in-out infinite;
+}
+
+@keyframes growAnimation {
+    from {
+        transform: rotate(0);
+        }
+        to {
+        transform: rotate(360deg);
+        }
+    }

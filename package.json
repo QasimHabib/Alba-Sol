@@ -1,0 +1,77 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fullcalendar/core": "^5.5.1",
+    "@fullcalendar/daygrid": "^5.5.0",
+    "@fullcalendar/interaction": "^5.5.0",
+    "@fullcalendar/react": "^5.5.0",
+    "@fullcalendar/timegrid": "^5.5.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.5.0",
+    "@trendmicro/react-sidenav": "^0.5.0",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.6.0",
+    "cors-anywhere": "^0.4.4",
+    "google-map-react": "^2.1.9",
+    "google-maps-react": "^2.0.6",
+    "jquery": "^3.5.1",
+    "mobx": "^6.3.0",
+    "mobx-react": "^7.1.0",
+    "popper.js": "^1.16.1",
+    "qs": "^6.9.6",
+    "react": "^17.0.1",
+    "react-autocomplete": "^1.8.1",
+    "react-autosuggestions": "^3.2.0",
+    "react-bootstrap": "^1.4.3",
+    "react-doc-viewer": "^0.1.5",
+    "react-dom": "^17.0.1",
+    "react-dropzone": "^11.3.1",
+    "react-file-icon": "^1.0.0",
+    "react-file-viewer": "^1.2.1",
+    "react-fixed-sidebar": "^1.1.3",
+    "react-geocode": "^0.2.3",
+    "react-google-maps": "^9.4.5",
+    "react-loader-spinner": "^4.0.0",
+    "react-pdf": "^5.2.0",
+    "react-phone-input-2": "^2.14.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "react-search": "^2.1.1",
+    "react-search-autocomplete": "^5.0.3",
+    "react-select": "^4.3.0",
+    "react-window": "^1",
+    "react-window-select": "0.0.1",
+    "react-windowed-select": "^3.1.1",
+    "reactjs-pdf-reader": "^1.0.12",
+    "tippy.js": "^6.2.7",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

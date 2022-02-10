@@ -1,0 +1,85 @@
+.active {
+    background-color: #F9FAFC;
+    border-left: 1px solid #B84257;
+    padding: 10px;
+}
+.form-control {
+    background-color: #F9FAFC!important;
+    border: 0!important;
+}
+.saveBtn {
+    width: 140px;
+    height: 36px;
+    background: #B84257;
+    border-radius: 4px;    
+    float: right;
+    margin-top: 10%;
+}
+
+@media only screen and (max-width: 480px){
+    .sideNavigation{
+        display: none !important;
+    }
+
+    .mobile-nav{
+        display: flex;
+        width: 100%!important;
+        z-index: 100;
+        opacity: 1;
+        background-color: #B84257 !important;
+        color: #fff;
+    }
+
+    .mobile-nav .navbar-toggler{
+        border: none;
+    }
+
+    .mobile-nav .logo{
+        width: 15%;
+    }
+
+    .mobile-nav .navbar-toggler:focus{
+        box-shadow: none !important;
+    }
+
+    .container .pb-3 {
+        padding-top: 4rem!important;
+    }
+
+    .has-search {
+        width: 100%!important;
+        margin-top: 5%;
+    }
+    .container {
+        max-width: 100% !important;
+        margin-left: 1% !important;
+    }
+    .clientsMain .container:first-child {
+        padding-top: 20%;
+    }
+    .secrow {
+        display: block!important;
+    }
+    .main {
+        padding-top: 30%;
+        width: 100vw;
+    }
+    .nav button, .modal-nav button {
+        padding: 10px!important;
+    }
+    .profil {
+        display: none;
+    }
+    .form-container {
+        width: 80%!important;
+    }
+}
+
+@media all and (min-width:768px) and (max-width:1024px) {
+    .head {
+        padding-top: 20%!important;
+    }
+    .head .col-md-2 {
+        display: none;
+    }
+}

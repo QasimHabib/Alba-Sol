@@ -1,0 +1,68 @@
+.protections-card .table-striped tbody tr:nth-of-type(odd),
+.options-card .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9fafc !important;
+}
+
+.protections-card .table-striped tbody td,
+.options-card .table-striped tbody td {
+  border: none !important;
+  background-color: inherit;
+}
+
+.protections-card .table-striped tbody tr,
+.options-card .table-striped tbody tr {
+  border-bottom: none !important;
+}
+
+.protections-card .table > :not(caption) > * > *,
+.options-card .table > :not(caption) > * > * {
+  background-image: none;
+}
+
+.protections-card .table-striped tbody tr:not(.table-head):hover,
+.options-card .table-striped tbody tr:not(.table-head):hover {
+  background-color: #fff;
+}
+
+.protections-card .check,
+.options-card .check {
+  color: #4caf50;
+  font-size: 18px;
+}
+
+.protections-card .cross,
+.options-card .cross {
+  color: #b84257;
+  font-size: 18px;
+}
+
+.postal-code .searchfield {
+  display: block !important;
+  width: 100% !important;
+  height: calc(1.5em + 0.75rem + 2px) !important;
+  padding: 0.375rem 0.75rem !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #495057 !important;
+  background-color: #f9fafc !important;
+  background-clip: padding-box !important;
+  border: none !important;
+  border-radius: 0.25rem !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+.postal-code div {
+  width: 100% !important;
+}
+
+.postal-code label {
+  display: none !important;
+}
+
+@media all and (max-width: 480px) {
+  .btns {
+    justify-content: flex-start !important;
+    margin-top: 5%;
+  }
+}

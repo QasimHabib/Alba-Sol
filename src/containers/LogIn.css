@@ -1,0 +1,54 @@
+.sidebar{
+    width: 300px !important;
+    padding: 1%;
+}
+
+.formGroup{
+    position: relative;
+}
+
+.formLabel{
+    position: absolute;
+    left: 5%;
+    top: -15%;
+    font-size: 14px;
+    font-weight: 600;
+    color: #B84257;
+}
+
+.formControl:focus ~ .formLabel{
+    top: 5%;
+    font-size: 10px;
+}
+
+.formControl{
+    font-size: 12px;
+}
+
+.formControl:focus{
+    border-color: #B84257 !important;
+}
+
+/* .sidenav---sidenav-toggle---1KRjR{
+    display: none !important;
+} */
+@media only screen and (max-width: 480px){
+    .form-container-mob{
+        width: 80% !important;
+    }
+
+    .form-container-mob h1{
+        font-size: 26px !important;
+        text-align: center;
+    }
+
+    .form-container-mob p{
+        font-size: 14px !important;
+        text-align: center;
+    }
+
+    .form-container-mob .form-check-label,
+    .form-container-mob .form-label{
+        font-size: 14px !important;
+    }
+}

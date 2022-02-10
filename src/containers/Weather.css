@@ -1,0 +1,14 @@
+.cards-container {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.cards-container .cards {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+.css-10nd86i {
+  width: 100%;
+}

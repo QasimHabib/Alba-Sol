@@ -1,0 +1,213 @@
+.modal-dialog{
+    max-width: 1000px !important;
+    margin: 10rem auto !important;
+}
+
+.modal-content{
+    border: none !important;
+}
+
+.delete-modal .modal-dialog{
+    max-width: 500px !important;
+    margin: 20rem auto !important;
+}
+
+.delete-modal .modal-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-modal .modal-body button{
+    font-weight: 600;
+}
+
+.delete-modal .modal-body p{
+    font-weight: 500;
+    color: #BBC9DC;
+}
+
+.form-group input[type = "date"]::-webkit-calendar-picker-indicator{
+    filter: invert(36%) sepia(13%) saturate(3132%) hue-rotate(301deg) brightness(94%) contrast(91%);
+    cursor: pointer;
+}
+
+.modal-footer button{
+    font-weight: 600;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.sidenav{
+    width: 16%;
+}
+
+.main{
+    width: 100%;
+    background-color: #f9fafc;
+    height: auto;
+}
+
+.totalProjects .nr h2,
+.totalClients .nr h2 {
+    color: #B84257;
+    font-weight: 700;
+}
+
+.totalProjects .nr p,
+.totalClients .nr p {
+    color: #2ECC71;
+    font-weight: 500;
+}
+
+.totalProjects .text p,
+.totalClients .text p {
+    color: #25283D;
+    font-weight: 500;
+}
+
+.nav button,
+.modal-nav button{
+    font-weight: 600;
+    color: #BBC9DC;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 20px;
+}
+
+.modal-nav{
+    border-bottom: 2px solid #F5F6F8;
+    width: 97%;
+    margin: auto;
+}
+
+.nav{
+    border-bottom: 2px solid #fff;
+    width: 97%;
+    margin: auto;
+}
+
+.nav button:active,
+.nav button:focus,
+.nav button:hover,
+.nav button.active,
+.modal-nav button:active,
+.modal-nav button:focus,
+.modal-nav button:hover,
+.modal-nav button.active{
+    color: #B84257;
+}
+
+.nav button:focus,
+.nav button:active,
+.nav button.active,
+.modal-nav button:focus,
+.modal-nav button:active,
+.modal-nav button.active{
+    border-bottom: 4px solid #B84257;
+}
+
+.nav-links .nav-link{
+    color: #25283D !important;
+    font-weight: 400;
+}
+
+.nav-links .nav-link:hover,
+.nav-links .nav-link:focus{
+    color: #B84257 !important;
+    font-weight: 600;
+}
+
+.icon1.active,
+.icon2.active,
+.icon3.active,
+.icon4.active,
+.icon5.active,
+.icon6.active,
+.icon7.active{
+    fill: #B84257;
+}
+
+.modalContainer .step-3 input[type= file]{
+    display: none;
+}
+
+nav {
+	position: fixed!important;
+	/* padding-bottom: 3%; */
+}
+
+@media only screen and (max-width: 480px){
+    .sideNavigation{
+        display: none !important;
+    }
+
+    .mobile-nav{
+        display: flex;
+        width: 100%;
+        z-index: 100;
+        opacity: 1;
+        background-color: #B84257 !important;
+        color: #fff;
+    }
+
+    .mobile-nav .navbar-toggler{
+        border: none;
+    }
+
+    .mobile-nav .logo{
+        width: 15%;
+    }
+
+    .mobile-nav .navbar-toggler:focus{
+        box-shadow: none !important;
+    }
+
+    .container .pb-3 {
+        padding-top: 4rem!important;
+    }
+
+    .has-search {
+        width: 100%!important;
+        margin-top: 5%;
+    }
+    .container {
+        max-width: 100% !important;
+        margin-left: 1% !important;
+    }
+    .totalProjects .nr, .totalClients .nr{
+        display: block!important;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .sideNavigation{
+        display: none !important;
+    }
+    .mobile-nav{
+        display: flex;
+        width: 100%;
+        z-index: 100;
+        opacity: 1;
+        background-color: #B84257 !important;
+        color: #fff;
+    }
+    .mobile-nav .navbar-toggler{
+        border: none;
+    }
+    .mobile-nav .logo{
+        width: 15%;
+    }
+    .mobile-nav .navbar-toggler:focus{
+        box-shadow: none !important;
+    }
+    .main .container {
+        margin: auto!important;
+        width: 100%;
+        margin-left: 0%!important;
+        max-width: 100%!important;
+    }
+}

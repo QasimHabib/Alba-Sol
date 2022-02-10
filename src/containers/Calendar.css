@@ -1,0 +1,376 @@
+.main {
+  width: 100%;
+  background-color: #f9fafc;
+  min-height: 100vh;
+}
+.container {
+  max-width: 80%;
+  margin-left: 16%;
+}
+
+/* .fc-daygrid-body{
+    width: 85% !important;
+}
+
+.fc-scrollgrid-sync-table{
+    width: 118% !important;
+    height: 711px !important;
+}
+*/
+
+/* .fc .fc-scrollgrid-liquid {
+    height: 70%;
+}  */
+
+.fc .fc-view-harness-active > .fc-view table tbody tr td:hover {
+  background-image: url(../images/add.svg);
+  background-size: auto;
+  background-position: center;
+  background-color: #eaedf2;
+  background-repeat: no-repeat;
+}
+
+.fc .fc-view-harness-active > .fc-view table thead tr:hover {
+  background-color: transparent;
+}
+
+.fc .fc-view-harness-active > .fc-view table tbody tr td {
+  background-color: #f5f6f8;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.fc .fc-view-harness-active > .fc-view table thead tr th,
+.fc-theme-standard .fc-scrollgrid,
+.fc-theme-standard td {
+  border: none;
+}
+
+.fc-col-header {
+  border-top: 1px solid #f5f6f8 !important;
+  /* width: 100% !important; */
+}
+
+.fc-col-header-cell {
+  padding: 1% 0 !important;
+}
+
+.fc-toolbar-chunk {
+  display: flex;
+}
+
+.fc-button {
+  background-color: #f5f6f8 !important;
+  color: #25283d !important;
+  border: none !important;
+  font-weight: 500 !important;
+  outline: none !important;
+}
+
+.fc-button:hover,
+.fc-button:focus,
+.fc-button-active:focus,
+.fc-button-active {
+  background-color: #e8eaec !important;
+  color: #b84257 !important;
+  border: none !important;
+  font-weight: 500 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.fc-prev-button,
+.fc-next-button,
+.fc-prev-button:hover,
+.fc-next-button:hover,
+.fc-prev-button:focus,
+.fc-next-button:focus {
+  background-color: white !important;
+  color: #25283d !important;
+}
+
+.fc-daygrid-event {
+  background-color: #dfffe0;
+  color: #25283d;
+  border: solid 1px green;
+}
+
+.fc-h-event .fc-event-main {
+  color: #25283d;
+  font-weight: 500;
+  padding: 2px;
+}
+
+.fc-v-event .fc-event-main-frame {
+  color: #25283d;
+  font-weight: 500;
+  padding: 2px;
+}
+
+.fc-daygrid-event:hover {
+  background-color: #c9facb;
+  color: #25283d;
+}
+
+.fc-daygrid-event-dot {
+  border-color: green !important;
+}
+
+.fc-daygrid-day-number {
+  text-decoration: none !important;
+  color: #25283d;
+  font-weight: 500 !important;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 1% 4% !important;
+  margin-top: 3%;
+  margin-right: 3%;
+}
+
+.fc-daygrid-day-number:hover {
+  color: #25283d !important;
+}
+
+.sunny::after {
+  content: url(../images/sun.svg);
+  position: absolute;
+  top: 5%;
+  right: 20%;
+  border-radius: 50%;
+  padding: 1% 4% !important;
+}
+
+.foggy::after {
+  content: url(../images/foggy.svg);
+  position: absolute;
+  top: 5%;
+  right: 20%;
+  border-radius: 50%;
+  padding: 0% 2% !important;
+}
+
+.cloudy::after {
+  content: url(../images/foggy.svg);
+  position: absolute;
+  top: 5%;
+  right: 20%;
+  border-radius: 50%;
+  padding: 0% 2% !important;
+}
+
+.rainy::after {
+  content: url(../images/rainy.svg);
+  position: absolute;
+  top: 5%;
+  right: 20%;
+  border-radius: 50%;
+  padding: 0% 2% !important;
+}
+
+.warn::before {
+  content: url(../images/warn.svg);
+  position: absolute;
+  top: 5%;
+  left: 0%;
+  border-radius: 50%;
+  padding: 0% 2% !important;
+}
+
+.fc-col-header-cell-cushion,
+.fc-col-header-cell-cushion:hover {
+  text-decoration: none !important;
+  color: #25283d;
+}
+
+.fc-toolbar-title,
+.fc-icon,
+.fc-col-header-cell-cushion {
+  color: #25283d !important;
+}
+
+.hoverEffect {
+  font-size: 29px;
+  position: absolute;
+  margin: 30px 55px;
+  color: #b84257;
+  cursor: pointer;
+}
+
+.step-2,
+.step-3,
+.step-4 {
+  display: none;
+}
+
+.cal-legend-icon {
+  font-size: 14px;
+}
+
+.fc-day-today {
+  background-color: #eaedf2 !important;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .sideNavigation {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: flex;
+    width: 100%;
+    z-index: 100;
+    opacity: 1;
+    background-color: #b84257 !important;
+    color: #fff;
+  }
+
+  .mobile-nav .navbar-toggler {
+    border: none;
+  }
+
+  .mobile-nav .logo {
+    width: 15%;
+  }
+
+  .mobile-nav .navbar-toggler:focus {
+    box-shadow: none !important;
+  }
+
+  .main .container {
+    max-width: 93% !important;
+    margin: auto !important;
+  }
+
+  .main .container .create-project {
+    width: 100% !important;
+  }
+
+  .main .container .user {
+    display: none !important;
+  }
+
+  .main .container .fc-header-toolbar .fc-toolbar-chunk:last-of-type {
+    display: none;
+  }
+
+  .main .container .fc-daygrid-body,
+  .main .container table {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /*.main .container table .fc-daygrid-day-events{
+        display: none !important;
+    }
+
+    .main .container .fc-view-harness{
+        height: 284px !important;
+    }
+
+    .main .container .fc-scrollgrid-sync-table tbody tr{
+        display: grid;
+        grid-template-columns: repeat(7, 45px);
+    }
+
+    .main .container .fc-scrollgrid-sync-table tbody tr td{
+        height: 40px !important;
+    }*/
+
+  .fc-daygrid-day-number {
+    margin: 10% auto !important;
+    padding: 1% 15% !important;
+  }
+
+  .main .container .calendar-legend {
+    padding: 0.5rem !important;
+  }
+
+  .main .container .legend-item {
+    margin-right: 0.5rem !important;
+  }
+
+  .main .container .legend-item i {
+    font-size: 14px !important;
+  }
+
+  .main .container .legend-item p {
+    font-size: 12px !important;
+  }
+
+  .main {
+    padding-bottom: 5% !important;
+  }
+
+  .modal-dialog {
+    width: 95% !important;
+  }
+
+  .modalContainer {
+    padding: 0 !important;
+  }
+
+  .modalContainer .modal-nav .btn {
+    padding: 4% !important;
+    font-size: 14px !important;
+  }
+}
+
+.ville-select .css-yk16xz-control {
+  background-color: #f9fafc !important;
+  border: none !important;
+}
+
+.ville-select .css-1wa3eu0-placeholder {
+  color: #b84257 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  left: 5% !important;
+}
+
+.ville-select .css-tj5bde-Svg {
+  fill: #b84257 !important;
+}
+
+.ville-select .css-1okebmr-indicatorSeparator {
+  width: 0px !important;
+}
+
+#Search-label {
+  display: none !important;
+}
+
+#Search-input {
+  border: 0 !important;
+  font-size: 0.8rem !important;
+  width: 23rem !important;
+  height: 31px !important;
+}
+
+#Search-autocomplete {
+  z-index: 100 !important;
+}
+
+.fc-event-time {
+  display: none;
+}
+
+.css-10nd86i {
+  width: 100%;
+}
+
+#Communes-label {
+  visibility: hidden !important;
+}
+
+#Communes-input {
+  border: 0 !important;
+  font-size: 0.8rem !important;
+}
+
+#Communes-autocomplete {
+  z-index: 100 !important;
+}
