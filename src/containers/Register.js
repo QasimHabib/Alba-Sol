@@ -35,7 +35,7 @@ class Register extends Component {
                 }
             };
 
-            const addClient = Axios.post("https://frozen-temple-16675.herokuapp.com/add-client", {
+            const addClient = Axios.post("http://192.168.100.232:3001/add-client", {
                 email: this.state.email,
                 password: this.state.password,
                 first_name: this.state.firstName,
@@ -45,7 +45,7 @@ class Register extends Component {
                 dep_Ref: "",
                 address: ""
             }, axiosConfig);
-            const registerClient = Axios.post("https://frozen-temple-16675.herokuapp.com/register",{
+            const registerClient = Axios.post("http://192.168.100.232:3001/register",{
                 email: this.state.email,
                 password: this.state.password,
                 first_name: this.state.firstName,
@@ -60,7 +60,7 @@ class Register extends Component {
                 // react on errors.
               })
 
-            /*Axios.post("https://frozen-temple-16675.herokuapp.com/login", postData, axiosConfig).then((response) => {
+            /*Axios.post("http://192.168.100.232:3001/login", postData, axiosConfig).then((response) => {
                 this.setState({loginStatus: response.data});
                 console.log(response);
                 localStorage.setItem('loginToken', this.state.username);

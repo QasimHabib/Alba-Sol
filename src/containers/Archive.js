@@ -80,7 +80,7 @@ class Archive extends Component {
         if (!loginToken){
             this.props.history.push('/');
         }
-        Axios.get("https://frozen-temple-16675.herokuapp.com/users").then((response) => {
+        Axios.get("http://192.168.100.232:3001/users").then((response) => {
             //console.log(response.data);
             var users = response.data;
                 users.forEach(element => {
@@ -202,7 +202,7 @@ class Archive extends Component {
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-dossier-technique", formData, config)
+        Axios.post("http://192.168.100.232:3001/upload-dossier-technique", formData, config)
         .then(response => {
             this._updateFileState('files', response.data)
         })
@@ -224,7 +224,7 @@ class Archive extends Component {
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-dossier-admin", formData, config)
+        Axios.post("http://192.168.100.232:3001/upload-dossier-admin", formData, config)
         .then(response => {
             this._updateFileState('filesAdmin', response.data)
         })
@@ -246,7 +246,7 @@ class Archive extends Component {
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-dossier-albamat", formData, config)
+        Axios.post("http://192.168.100.232:3001/upload-dossier-albamat", formData, config)
         .then(response => {
             this._updateFileState('filesAlbamat', response.data)
         })
@@ -258,7 +258,7 @@ class Archive extends Component {
 
     getFiles = () => {
         
-        Axios.get("https://frozen-temple-16675.herokuapp.com/projects-dossier-technique").then((response) => {
+        Axios.get("http://192.168.100.232:3001/projects-dossier-technique").then((response) => {
             this.setState({files: response.data});
             // setProjectsList(response.data);
             //setShow(!show);  
@@ -266,7 +266,7 @@ class Archive extends Component {
         }  
         );
 
-        Axios.get("https://frozen-temple-16675.herokuapp.com/projects-dossier-admin").then((response) => {
+        Axios.get("http://192.168.100.232:3001/projects-dossier-admin").then((response) => {
             this.setState({filesAdmin: response.data});
             // setProjectsList(response.data);
             //setShow(!show);  
@@ -274,7 +274,7 @@ class Archive extends Component {
         }  
         );
 
-        Axios.get("https://frozen-temple-16675.herokuapp.com/projects-dossier-albamat").then((response) => {
+        Axios.get("http://192.168.100.232:3001/projects-dossier-albamat").then((response) => {
             this.setState({filesAlbamat: response.data});
             // setProjectsList(response.data);
             //setShow(!show);  
@@ -286,7 +286,7 @@ class Archive extends Component {
 
     deleteDoc = (event, id) => {
         console.log(this.state.fileId);
-        Axios.delete('https://frozen-temple-16675.herokuapp.com/delete-dossier-technique', { data: {id: this.state.fileId } }).then((response) => {
+        Axios.delete('http://192.168.100.232:3001/delete-dossier-technique', { data: {id: this.state.fileId } }).then((response) => {
         // this only runs on success
         console.log("RESPONSE FROM POST", response.data);
         this._deleteFile('files')
@@ -302,7 +302,7 @@ class Archive extends Component {
 
 deleteDocAdmin = (event, id) => {
     console.log(this.state.fileId);
-    Axios.delete('https://frozen-temple-16675.herokuapp.com/delete-dossier-admin', { data: {id: this.state.fileId } }).then((response) => {
+    Axios.delete('http://192.168.100.232:3001/delete-dossier-admin', { data: {id: this.state.fileId } }).then((response) => {
     // this only runs on success
     console.log("RESPONSE FROM POST", response.data);
     this._deleteFile('filesAdmin')
@@ -322,7 +322,7 @@ deleteDocAdmin = (event, id) => {
     // });
     // var config = {
     // method: 'delete',
-    // url: 'https://frozen-temple-16675.herokuapp.com/delete-dossier-admin',
+    // url: 'http://192.168.100.232:3001/delete-dossier-admin',
     // headers: { 
     //     'Content-Type': 'application/x-www-form-urlencoded'
     // },
@@ -346,7 +346,7 @@ deleteDocAdmin = (event, id) => {
     //===================
     deleteDocAlbamat = (event, id) => {
         console.log(this.state.fileId);
-        Axios.delete('https://frozen-temple-16675.herokuapp.com/delete-dossier-albamat', { data: {id: this.state.fileId } }).then((response) => {
+        Axios.delete('http://192.168.100.232:3001/delete-dossier-albamat', { data: {id: this.state.fileId } }).then((response) => {
         // this only runs on success
         console.log("RESPONSE FROM POST", response.data);
         this._deleteFile('filesAlbamat')
@@ -368,7 +368,7 @@ deleteDocAdmin = (event, id) => {
     //         });
     //         var config = {
     //         method: 'delete',
-    //         url: 'https://frozen-temple-16675.herokuapp.com/delete-dossier-albamat',
+    //         url: 'http://192.168.100.232:3001/delete-dossier-albamat',
     //         headers: { 
     //             'Content-Type': 'application/x-www-form-urlencoded'
     //         },
@@ -403,7 +403,7 @@ deleteDocAdmin = (event, id) => {
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-dossier-technique", formData, config)
+        Axios.post("http://192.168.100.232:3001/upload-dossier-technique", formData, config)
         .then(response => {
             this._updateFileState('files', response.data)
         })

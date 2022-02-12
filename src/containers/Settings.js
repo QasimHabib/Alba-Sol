@@ -53,7 +53,7 @@ class Archive extends Component {
         var loginToken = localStorage.getItem('loginToken');
         var config = {
             method: 'get',
-            url: 'https://frozen-temple-16675.herokuapp.com/user/'+loginToken,
+            url: 'http://192.168.100.232:3001/user/'+loginToken,
             headers: { 
               'Content-Type': 'application/json'
             },
@@ -83,7 +83,7 @@ class Archive extends Component {
             const { firstName, lastName, newPassword } = this.state;
             console.log(firstName, lastName, newPassword);
             const email = localStorage.getItem('loginToken');
-            Axios.put("https://frozen-temple-16675.herokuapp.com/update-user", {
+            Axios.put("http://192.168.100.232:3001/update-user", {
                 email: email,
                 first_name: this.state.firstName,
                 last_name: this.state.lastName,

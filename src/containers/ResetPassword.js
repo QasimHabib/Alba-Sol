@@ -153,7 +153,7 @@ class ResetPassword extends Component {
 
         const login = () => {
             const { token } = this.state;
-            Axios.post("https://frozen-temple-16675.herokuapp.com/reset-password/"+token, {
+            Axios.post("http://192.168.100.232:3001/reset-password/"+token, {
                 email: this.state.username,
                 password: this.state.password,
                 token: this.state.token,

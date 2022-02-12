@@ -26,7 +26,7 @@ class ClientsTable extends Component {
 
 
     componentDidMount(){
-        Axios.get("https://frozen-temple-16675.herokuapp.com/clients").then((response) => {
+        Axios.get("http://192.168.100.232:3001/clients").then((response) => {
             this.setState({clients: response.data});
             console.log(response.data);
         }  
@@ -69,7 +69,7 @@ class ClientsTable extends Component {
             });
             var config = {
                 method: 'delete',
-                url: 'https://frozen-temple-16675.herokuapp.com/delete-client',
+                url: 'http://192.168.100.232:3001/delete-client',
                 headers: { 
                 'Content-Type': 'application/x-www-form-urlencoded'
                 },
@@ -102,7 +102,7 @@ class ClientsTable extends Component {
         });
         var config = {
           method: 'put',
-          url: 'https://frozen-temple-16675.herokuapp.com/update-client',
+          url: 'http://192.168.100.232:3001/update-client',
           headers: { 
             'Content-Type': 'application/x-www-form-urlencoded'
           },
@@ -125,7 +125,7 @@ class ClientsTable extends Component {
         //console.log(this.state.company);
         var config = {
           method: 'get',
-          url: `https://frozen-temple-16675.herokuapp.com/client-projects/${this.state.company}`,
+          url: `http://192.168.100.232:3001/client-projects/${this.state.company}`,
           headers: { },
           data : ""
         };

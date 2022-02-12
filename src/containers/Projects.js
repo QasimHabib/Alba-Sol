@@ -53,7 +53,7 @@ class Projects extends Component {
         client: "laurent",
         addrPrj: "",
         ville: "",
-        nomProjet: "ALBA",
+        nomProjet: "",
         complementAddr: "",
         nomResp: "",
         prenomResp: "",
@@ -127,7 +127,7 @@ class Projects extends Component {
         //New code ||||||||||||||||||||||||||||||||||||||||||=========||||||||||||||||||||||||||||
 
 
-        Axios.get("https://frozen-temple-16675.herokuapp.com/clients").then((response) => {
+        Axios.get("http://192.168.100.232:3001/clients").then((response) => {
             //console.log(response.data);
             var users = response.data;
             users.forEach(element => {
@@ -145,7 +145,7 @@ class Projects extends Component {
 
         // ||||||||||||||||||||||||||||||||||||||||||=========||||||||||||||||||||||||||||
 
-        Axios.get("https://frozen-temple-16675.herokuapp.com/users").then((response) => {
+        Axios.get("http://192.168.100.232:3001/users").then((response) => {
             //console.log(response.data);
             var users = response.data;
            // console.log("users", users)
@@ -171,7 +171,7 @@ class Projects extends Component {
 
         var configClients = {
             method: 'get',
-            url: 'https://frozen-temple-16675.herokuapp.com/clients-today/',
+            url: 'http://192.168.100.232:3001/clients-today/',
             headers: {}
         };
         const self = this;
@@ -187,7 +187,7 @@ class Projects extends Component {
 
         var configProjects = {
             method: 'get',
-            url: 'https://frozen-temple-16675.herokuapp.com/projects-today/',
+            url: 'http://192.168.100.232:3001/projects-today/',
             headers: {}
         };
 
@@ -204,7 +204,7 @@ class Projects extends Component {
 
         /*var config = {
             method: 'get',
-            url: 'https://frozen-temple-16675.herokuapp.com/villes',
+            url: 'http://192.168.100.232:3001/villes',
             headers: { 
               'Content-Type': 'application/json'
             },
@@ -266,7 +266,7 @@ class Projects extends Component {
         var enterpriseEmail = localStorage.getItem('loginToken');
 
         if (userType === 'ADMIN') {
-            Axios.get("https://frozen-temple-16675.herokuapp.com/projects-no-limit").then((response) => {
+            Axios.get("http://192.168.100.232:3001/projects-no-limit").then((response) => {
                 this.setState({ projectsList: response.data });
                 // setProjectsList(response.data);
                 //setShow(!show);  
@@ -276,7 +276,7 @@ class Projects extends Component {
            // console.log("xxxxxxxxx",response.data);
             console.log("firstNameee",this.state.first_name)
             console.log("Email", enterpriseEmail)
-            Axios.get(`https://frozen-temple-16675.herokuapp.com/user-projects/${this.state.first_name}`).then((response) => {
+            Axios.get(`http://192.168.100.232:3001/user-projects/${this.state.first_name}`).then((response) => {
                 this.setState({ projectsList: response.data });
                 console.log("data is:", response.data)
                 // setProjectsList(response.data);
@@ -290,7 +290,7 @@ class Projects extends Component {
     };
 
     getTotalProjects = () => {
-        Axios.get("https://frozen-temple-16675.herokuapp.com/projects-no-limit").then((response) => {
+        Axios.get("http://192.168.100.232:3001/projects-no-limit").then((response) => {
             const totalProjects = response.data.length;
             this.setState({ totalProjects: totalProjects });
         }
@@ -298,7 +298,7 @@ class Projects extends Component {
     }
 
     getTotalClients = () => {
-        Axios.get("https://frozen-temple-16675.herokuapp.com/clients").then((response) => {
+        Axios.get("http://192.168.100.232:3001/clients").then((response) => {
             const totalClients = response.data.length;
             this.setState({ totalClients: totalClients });
         }
@@ -315,12 +315,33 @@ class Projects extends Component {
         }
 
         let formData = new FormData();    //formdata object
+        console.log("accessChantier Array",this.state.accesChantier)
+      
+        this.state.accesChantier.map(c => {
+                for(let i=0; i<c.length; i++){
+                formData.append('access_au_chantier', c[i]);
+                }
+        })
+       
+       console.log("formdata of accessChantier ",formData.getAll('access_au_chantier'))
+         
+        this.state.preparationProjet.map(p =>{
+            for(let j=0; j<p.length; j++){
+                formData.append('preparation_projet',p[j])
+            }
+        })
+        
+        this.state.planProjet.map(p =>{
+            for(let i=0; i<p.length; i++){
+                formData.append('plan_projet', p[i])
+            }
+        })
 
-        formData.append('access_au_chantier', this.state.accesChantier);
-        formData.append('preparation_projet', this.state.preparationProjet);
-        formData.append('plan_projet', this.state.planProjet);
+        // formData.append('access_au_chantier', this.state.accesChantier);
+        //formData.append('preparation_projet', this.state.preparationProjet);
+       // formData.append('plan_projet', this.state.planProjet);
         formData.append('client', this.state.client);
-        formData.append('nom', this.state.nomProjet);
+        formData.append('nom', this.state.entreprise_name);
         formData.append('complement_adresse', this.state.complementAddr);
         formData.append('id_ville_id', this.state.ville);
         formData.append('nom_Responsable', this.state.nomResp);
@@ -386,7 +407,7 @@ class Projects extends Component {
             }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/create-project", formData, config)
+        Axios.post("http://192.168.100.232:3001/create-project", formData, config)
             .then(response => {
                 console.log(response);
                 window.location.reload();

@@ -37,7 +37,7 @@ class Weather extends Component {
             this.props.history.push('/');
         }
 
-        Axios.get("https://frozen-temple-16675.herokuapp.com/users").then((response) => {
+        Axios.get("http://192.168.100.232:3001/users").then((response) => {
             //console.log(response.data);
             var users = response.data;
             users.forEach(element => {

@@ -174,7 +174,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             this.props.history.push('/');
         }
 
-        Axios.get("https://frozen-temple-16675.herokuapp.com/users").then((response) => {
+        Axios.get("http://192.168.100.232:3001/users").then((response) => {
             //console.log(response.data);
             var users = response.data;
             users.forEach(element => {
@@ -189,12 +189,12 @@ Geocode.fromAddress(this.state.project.adresse).then(
         const projectId = (window.location.href).split('/').pop();
         
 
-        Axios.get(`https://frozen-temple-16675.herokuapp.com/project/${projectId}`).then((response) => {
+        Axios.get(`http://192.168.100.232:3001/project/${projectId}`).then((response) => {
             if (response.data.length > 0) {
                 this.setState({
                     project: response.data[0],
                     id: response.data[0].id,
-                    client: response.data[0].client,
+                    client: response.data[0].nom,
                     addrPrj: response.data[0].adresse,
                     ville: response.data[0].id_ville_id,
                     nomProjet: response.data[0].nom,
@@ -243,7 +243,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
 
         var config = {
             method: 'get',
-            url: 'https://frozen-temple-16675.herokuapp.com/villes',
+            url: 'http://192.168.100.232:3001/villes',
             headers: { 
               'Content-Type': 'application/json'
             },
@@ -268,7 +268,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
         }); */}
 
         Axios
-        .get(`https://frozen-temple-16675.herokuapp.com/plan-masse/${projectId}`)
+        .get(`http://192.168.100.232:3001/plan-masse/${projectId}`)
         .then((response) => {
             // console.log(response.data);
             const data = response.data;
@@ -278,7 +278,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
         });  
 
         Axios
-        .get(`https://frozen-temple-16675.herokuapp.com/photo-acces/${projectId}`)
+        .get(`http://192.168.100.232:3001/photo-acces/${projectId}`)
         .then((response) => {
             console.log(response.data);
             const data = response.data;
@@ -288,7 +288,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
         }); 
 
         Axios
-        .get(`https://frozen-temple-16675.herokuapp.com/photos-preparation/${projectId}`)
+        .get(`http://192.168.100.232:3001/photos-preparation/${projectId}`)
         .then((response) => {
             // console.log(response.data[0]);
             const data = response.data;
@@ -298,7 +298,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
         }); 
 
         Axios
-        .get(`https://frozen-temple-16675.herokuapp.com/photos_chantier/${projectId}`)
+        .get(`http://192.168.100.232:3001/photos_chantier/${projectId}`)
         .then((response) => {
             // console.log(response.data[0]);
             const data = response.data;
@@ -308,7 +308,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
         }); 
 
         Axios
-        .get(`https://frozen-temple-16675.herokuapp.com/factures/${projectId}`)
+        .get(`http://192.168.100.232:3001/factures/${projectId}`)
         .then((response) => {
             // console.log(response.data[0]);
             const data = response.data;
@@ -431,7 +431,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
         });
         var config = {
         method: 'delete',
-        url: 'https://frozen-temple-16675.herokuapp.com/delete-photos-chantier',
+        url: 'http://192.168.100.232:3001/delete-photos-chantier',
         headers: { 
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -457,7 +457,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             });
             var config = {
             method: 'delete',
-            url: 'https://frozen-temple-16675.herokuapp.com/delete-plan-masse',
+            url: 'http://192.168.100.232:3001/delete-plan-masse',
             headers: { 
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -482,7 +482,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
                 });
                 var config = {
                 method: 'delete',
-                url: 'https://frozen-temple-16675.herokuapp.com/delete-photos-access',
+                url: 'http://192.168.100.232:3001/delete-photos-access',
                 headers: { 
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
@@ -507,7 +507,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
                     });
                     var config = {
                     method: 'delete',
-                    url: 'https://frozen-temple-16675.herokuapp.com/delete-photos-preparation',
+                    url: 'http://192.168.100.232:3001/delete-photos-preparation',
                     headers: { 
                         'Content-Type': 'application/x-www-form-urlencoded'
                     },
@@ -532,7 +532,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
                         });
                         var config = {
                         method: 'delete',
-                        url: 'https://frozen-temple-16675.herokuapp.com/delete-file-factures',
+                        url: 'http://192.168.100.232:3001/delete-file-factures',
                         headers: { 
                             'Content-Type': 'application/x-www-form-urlencoded'
                         },
@@ -677,7 +677,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-plan-masse", formData, config)
+        Axios.post("http://192.168.100.232:3001/upload-plan-masse", formData, config)
         .then(response => {
             console.log(response);
         })
@@ -711,7 +711,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-photos-acces", formData, config)
+        Axios.post("http://192.168.100.232:3001/upload-photos-acces", formData, config)
         .then(response => {
             console.log(response);
         })
@@ -744,7 +744,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-photos-preparation", formData, config)
+        Axios.post("http://192.168.100.232:3001/upload-photos-preparation", formData, config)
         .then(response => {
             console.log(response);
         })
@@ -777,7 +777,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-photos-chantier", formData, config)
+        Axios.post("http://192.168.100.232:3001/upload-photos-chantier", formData, config)
         .then(response => {
             console.log(response);
         })
@@ -810,7 +810,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-factures", formData, config)
+        Axios.post("http://192.168.100.232:3001/upload-factures", formData, config)
         .then(response => {
             console.log(response);
         })
@@ -844,7 +844,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             });
             var config = {
                 method: 'delete',
-                url: 'https://frozen-temple-16675.herokuapp.com/delete-project',
+                url: 'http://192.168.100.232:3001/delete-project',
                 headers: { 
                 'Content-Type': 'application/x-www-form-urlencoded'
                 },
@@ -877,7 +877,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             });
             var config = {
                 method: 'put',
-                url: 'https://frozen-temple-16675.herokuapp.com/finish-project',
+                url: 'http://192.168.100.232:3001/finish-project',
                 headers: { 
                 'Content-Type': 'application/x-www-form-urlencoded'
                 },
@@ -908,7 +908,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             });
             var config = {
                 method: 'put',
-                url: 'https://frozen-temple-16675.herokuapp.com/archive-project',
+                url: 'http://192.168.100.232:3001/archive-project',
                 headers: { 
                 'Content-Type': 'application/x-www-form-urlencoded'
                 },
@@ -939,7 +939,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             });
             var config = {
                 method: 'put',
-                url: 'https://frozen-temple-16675.herokuapp.com/dearchive-project',
+                url: 'http://192.168.100.232:3001/dearchive-project',
                 headers: { 
                 'Content-Type': 'application/x-www-form-urlencoded'
                 },
@@ -1021,7 +1021,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("https://frozen-temple-16675.herokuapp.com/edit-project" , formData, config)
+        Axios.post("http://192.168.100.232:3001/edit-project" , formData, config)
         .then(response => {
             console.log(response);
         })
@@ -1673,7 +1673,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
                                     <div className="col-md-6">
                                         <div className="info-group d-flex flex-column mb-2">
                                             <p className="mb-1" style={{color: "#B84257", fontWeight: 600}}>Client</p>
-                                            <p>{project.client}</p>
+                                            <p>{project.nom}</p>
                                         </div>
                                         <div className="info-group d-flex flex-column mb-2">
                                             <p className="mb-1" style={{color: "#B84257", fontWeight: 600}}>Référence du chantier</p>
@@ -1715,7 +1715,7 @@ Geocode.fromAddress(this.state.project.adresse).then(
                                         </div>
                                         <div className="info-group d-flex flex-column mb-2">
                                             <p className="mb-1" style={{color: "#B84257", fontWeight: 600}}>Et le</p>
-                                            <p>{project.dates_Livraison && project.dates_Livraison.split("-").join("/").slice(0, 10)}</p>
+                                            <p>{project.created_at && project.created_at.split("-").join("/").slice(0, 10)}</p>
                                         </div>
                                     </div>
                                 </div>
