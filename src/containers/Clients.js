@@ -42,7 +42,7 @@ class Clients extends Component {
 
         this.getClients();
 
-        Axios.get("http://192.168.100.232:3001/users").then((response) => {
+        Axios.get("https://frozen-temple-16675.herokuapp.com/users").then((response) => {
             // console.log(response.data);
             var users = response.data;
             users.forEach(element => {
@@ -63,7 +63,7 @@ class Clients extends Component {
     }
 
     getClients = () => {
-        Axios.get("http://192.168.100.232:3001/clients").then((response) => {
+        Axios.get("https://frozen-temple-16675.herokuapp.com/clients").then((response) => {
             this.setState({clientsList: response.data});
             // setProjectsList(response.data);
             //setShow(!show);  
@@ -83,7 +83,7 @@ class Clients extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        const addClient = Axios.post("http://192.168.100.232:3001/add-client", {
+        const addClient = Axios.post("https://frozen-temple-16675.herokuapp.com/add-client", {
             email: this.state.email,
             password: this.state.password,
             first_name: this.state.name,
@@ -93,7 +93,7 @@ class Clients extends Component {
             dep_Ref: this.state.company,
             address: this.state.address
         });
-        const registerClient = Axios.post("http://192.168.100.232:3001/register",{
+        const registerClient = Axios.post("https://frozen-temple-16675.herokuapp.com/register",{
             email: this.state.email,
             password: this.state.password,
             first_name: this.state.name,

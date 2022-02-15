@@ -13,7 +13,7 @@ function App() {
 
         var config = {
              method: 'get',
-             url: 'http://192.168.100.232:3001/client-projects',
+             url: 'https://frozen-temple-16675.herokuapp.com/client-projects',
              headers: { 
                'Content-Type': 'application/x-www-form-urlencoded'
              },

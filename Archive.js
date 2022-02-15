@@ -75,7 +75,7 @@ class Archive extends Component {
         if (!loginToken){
             this.props.history.push('/');
         }
-        Axios.get("http://192.168.100.232:3001/users").then((response) => {
+        Axios.get("https://frozen-temple-16675.herokuapp.com/users").then((response) => {
             //console.log(response.data);
             var users = response.data;
                 users.forEach(element => {
@@ -177,7 +177,7 @@ class Archive extends Component {
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("http://192.168.100.232:3001/upload-dossier-technique", formData, config)
+        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-dossier-technique", formData, config)
         .then(response => {
             window.location.href = "/calendar";
         })
@@ -199,7 +199,7 @@ class Archive extends Component {
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("http://192.168.100.232:3001/upload-dossier-admin", formData, config)
+        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-dossier-admin", formData, config)
         .then(response => {
             window.location.href = "/calendar";
         })
@@ -221,7 +221,7 @@ class Archive extends Component {
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("http://192.168.100.232:3001/upload-dossier-albamat", formData, config)
+        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-dossier-albamat", formData, config)
         .then(response => {
             window.location.href = "/calendar";
         })
@@ -234,7 +234,7 @@ class Archive extends Component {
 
     getFiles = () => {
         
-        Axios.get("http://192.168.100.232:3001/projects-dossier-technique").then((response) => {
+        Axios.get("https://frozen-temple-16675.herokuapp.com/projects-dossier-technique").then((response) => {
             this.setState({files: response.data});
             // setProjectsList(response.data);
             //setShow(!show);  
@@ -242,7 +242,7 @@ class Archive extends Component {
         }  
         );
 
-        Axios.get("http://192.168.100.232:3001/projects-dossier-admin").then((response) => {
+        Axios.get("https://frozen-temple-16675.herokuapp.com/projects-dossier-admin").then((response) => {
             this.setState({filesAdmin: response.data});
             // setProjectsList(response.data);
             //setShow(!show);  
@@ -250,7 +250,7 @@ class Archive extends Component {
         }  
         );
 
-        Axios.get("http://192.168.100.232:3001/projects-dossier-albamat").then((response) => {
+        Axios.get("https://frozen-temple-16675.herokuapp.com/projects-dossier-albamat").then((response) => {
             this.setState({filesAlbamat: response.data});
             // setProjectsList(response.data);
             //setShow(!show);  
@@ -262,7 +262,7 @@ class Archive extends Component {
 
     deleteDoc = (event, id) => {
         console.log(this.state.fileId);
-        Axios.delete('http://192.168.100.232:3001/delete-dossier-technique', { data: {id: this.state.fileId } }).then((response) => {
+        Axios.delete('https://frozen-temple-16675.herokuapp.com/delete-dossier-technique', { data: {id: this.state.fileId } }).then((response) => {
         // this only runs on success
         console.log("RESPONSE FROM POST///", response.data);
         }, (err) => {
@@ -280,7 +280,7 @@ class Archive extends Component {
     });
     var config = {
     method: 'delete',
-    url: 'http://192.168.100.232:3001/delete-dossier-admin',
+    url: 'https://frozen-temple-16675.herokuapp.com/delete-dossier-admin',
     headers: { 
         'Content-Type': 'application/x-www-form-urlencoded'
     },
@@ -305,7 +305,7 @@ class Archive extends Component {
             });
             var config = {
             method: 'delete',
-            url: 'http://192.168.100.232:3001/delete-dossier-albamat',
+            url: 'https://frozen-temple-16675.herokuapp.com/delete-dossier-albamat',
             headers: { 
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -338,7 +338,7 @@ class Archive extends Component {
             headers: { 'content-type': 'multipart/form-data' }
         }
 
-        Axios.post("http://192.168.100.232:3001/upload-dossier-technique", formData, config)
+        Axios.post("https://frozen-temple-16675.herokuapp.com/upload-dossier-technique", formData, config)
         .then(response => {
             console.log(response);
         })

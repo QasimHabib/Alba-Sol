@@ -185,7 +185,7 @@ class LogIn extends Component {
                 }
             };
 
-            Axios.post("http://192.168.100.232:3001/login", postData, axiosConfig).then((response) => {
+            Axios.post("https://frozen-temple-16675.herokuapp.com/login", postData, axiosConfig).then((response) => {
                 this.setState({loginStatus: response.data});
                 console.log(response.data);
                 localStorage.setItem('loginToken', this.state.username);

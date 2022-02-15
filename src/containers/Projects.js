@@ -19,6 +19,8 @@ import { villes } from "./villes.js";
 
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import { retriveClients, retriveProject, retriveTotalProjects, retriveUsers } from '../api/apiRequests';
+import api from '../api/api'
 var trigger = true
 class Projects extends Component {
      trigger = false
@@ -122,14 +124,13 @@ class Projects extends Component {
         this.setState({admin1: loginToken})
         this.getTotalProjects();       
         this.getTotalClients();
+        
        // this.getProjects();
        
         //New code ||||||||||||||||||||||||||||||||||||||||||=========||||||||||||||||||||||||||||
 
-
-        Axios.get("http://192.168.100.232:3001/clients").then((response) => {
-            //console.log(response.data);
-            var users = response.data;
+        const getAllClient= async ()=>{
+            var users= await retriveClients();
             users.forEach(element => {
                 if (element.email === loginToken) {
                     this.setState({
@@ -141,14 +142,14 @@ class Projects extends Component {
                 }
             });
              this.getProjects()
-        });
+        }
+        getAllClient();
+
 
         // ||||||||||||||||||||||||||||||||||||||||||=========||||||||||||||||||||||||||||
 
-        Axios.get("http://192.168.100.232:3001/users").then((response) => {
-            //console.log(response.data);
-            var users = response.data;
-           // console.log("users", users)
+        const getUsers = async () =>{
+            const users= await retriveUsers()
             users.forEach(element => {
                 
                 if (element.email === loginToken) {
@@ -160,8 +161,9 @@ class Projects extends Component {
                     });
                 }
             });
-            
-        });
+        }
+        getUsers()
+
         
 
 
@@ -171,7 +173,7 @@ class Projects extends Component {
 
         var configClients = {
             method: 'get',
-            url: 'http://192.168.100.232:3001/clients-today/',
+            url: 'https://frozen-temple-16675.herokuapp.com/clients-today/',
             headers: {}
         };
         const self = this;
@@ -187,7 +189,7 @@ class Projects extends Component {
 
         var configProjects = {
             method: 'get',
-            url: 'http://192.168.100.232:3001/projects-today/',
+            url: 'https://frozen-temple-16675.herokuapp.com/projects-today/',
             headers: {}
         };
 
@@ -204,7 +206,7 @@ class Projects extends Component {
 
         /*var config = {
             method: 'get',
-            url: 'http://192.168.100.232:3001/villes',
+            url: 'https://frozen-temple-16675.herokuapp.com/villes',
             headers: { 
               'Content-Type': 'application/json'
             },
@@ -229,13 +231,7 @@ class Projects extends Component {
         }); */
     }
 
-    // componentDidUpdate(pP, pS, sS){
-    //  if(this.state.first_name != "" && trigger){
-    //     this.getProjects()
-    //     trigger= false
-    //  }
-    
-    // }
+   
 
     logout = () => {
         localStorage.removeItem("loginToken");
@@ -261,49 +257,48 @@ class Projects extends Component {
         this.setState({ showDeleteModal: false });
     };
 
-    getProjects = () => {
+    getProjects = async () => {
         var userType = localStorage.getItem('roleUser');
         var enterpriseEmail = localStorage.getItem('loginToken');
 
         if (userType === 'ADMIN') {
-            Axios.get("http://192.168.100.232:3001/projects-no-limit").then((response) => {
-                this.setState({ projectsList: response.data });
+            const totalProjects = await retriveTotalProjects()
+                this.setState({ projectsList: totalProjects });
+                this.setState({totalProjects: totalProjects.length})
                 // setProjectsList(response.data);
                 //setShow(!show);  
-                console.log(response.data);
-            });
+                console.log(totalProjects);
+            
         } else {
-           // console.log("xxxxxxxxx",response.data);
+           
             console.log("firstNameee",this.state.first_name)
-            console.log("Email", enterpriseEmail)
-            Axios.get(`http://192.168.100.232:3001/user-projects/${this.state.first_name}`).then((response) => {
-                this.setState({ projectsList: response.data });
-                console.log("data is:", response.data)
-                // setProjectsList(response.data);
-                //setShow(!show);  
-               // window.location.reload();
+
+            const project= await retriveProject(this.state.first_name)
+                this.setState({ projectsList: project });
+                console.log("data is:", project)
+              
           
-            });
+            
         }
 
 
     };
 
-    getTotalProjects = () => {
-        Axios.get("http://192.168.100.232:3001/projects-no-limit").then((response) => {
-            const totalProjects = response.data.length;
-            this.setState({ totalProjects: totalProjects });
-        }
-        );
+    getTotalProjects = async () => {
+       
+            const totalProjects = await retriveTotalProjects();
+            this.setState({ totalProjects: totalProjects.length });
+        
+        
     }
 
-    getTotalClients = () => {
-        Axios.get("http://192.168.100.232:3001/clients").then((response) => {
-            const totalClients = response.data.length;
-            this.setState({ totalClients: totalClients });
+    getTotalClients = async () => {
+        
+            const totalClients = await retriveClients()
+            this.setState({ totalClients: totalClients.length });
         }
-        );
-    }
+       
+   
 
     onSubmit = (e) => {
         e.preventDefault();
@@ -407,10 +402,12 @@ class Projects extends Component {
             }
         }
 
-        Axios.post("http://192.168.100.232:3001/create-project", formData, config)
+        Axios.post("https://frozen-temple-16675.herokuapp.com/create-project", formData, config)
             .then(response => {
                 console.log(response);
-                window.location.reload();
+                this.getProjects()
+              //  window.location.reload();
+                
             })
             .catch(error => {
                 console.log(error);

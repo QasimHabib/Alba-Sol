@@ -40,6 +40,7 @@ import { communes } from './communesData.js';
 
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import {retriveClients} from '../api/apiRequests'
 
 var qs = require('qs');
 
@@ -148,26 +149,42 @@ class Calendar extends Component {
         }
         this.setState({admin1: loginToken})
 
-         //New code||||||||||||||||||||||====||||||||||||||||||||||||||||||||||||||
-         Axios.get("http://192.168.100.232:3001/clients").then((response) => {
-            //console.log(response.data);
-            var users = response.data;
+
+        const getAllClient= async ()=>{
+            var users= await retriveClients();
             users.forEach(element => {
-                if(element.email === loginToken){
+                if (element.email === loginToken) {
                     this.setState({
+                         first_name: element.first_name,
                         entreprise_name: element.entreprise_name,
-                        client: element.first_name,
-                        first_name: element.first_name,
-                    
+                       
+
                     });
-                } 
+                }
             });
-            this.getProjects();
+             this.getProjects()
+        }
+        getAllClient();
+         //New code||||||||||||||||||||||====||||||||||||||||||||||||||||||||||||||
+        //  Axios.get("https://frozen-temple-16675.herokuapp.com/clients").then((response) => {
+        //     //console.log(response.data);
+        //     var users = response.data;
+        //     users.forEach(element => {
+        //         if(element.email === loginToken){
+        //             this.setState({
+        //                 entreprise_name: element.entreprise_name,
+        //                 client: element.first_name,
+        //                 first_name: element.first_name,
+                    
+        //             });
+        //         } 
+        //     });
+        //     this.getProjects();
 
-        });
+        // });
 
 
-        Axios.get("http://192.168.100.232:3001/users").then((response) => {
+        Axios.get("https://frozen-temple-16675.herokuapp.com/users").then((response) => {
             //console.log(response.data);
             var users = response.data;
             users.forEach(element => {
@@ -185,7 +202,7 @@ class Calendar extends Component {
 
         {/*var config = {
             method: 'get',
-            url: 'http://192.168.100.232:3001/villes',
+            url: 'https://frozen-temple-16675.herokuapp.com/villes',
             headers: { 
               'Content-Type': 'application/json'
             },
@@ -284,7 +301,7 @@ class Calendar extends Component {
         var enterpriseEmail = localStorage.getItem('loginToken');
 
         if(userType === 'ADMIN') {
-            Axios.get("http://192.168.100.232:3001/projects").then((response) => {
+            Axios.get("https://frozen-temple-16675.herokuapp.com/projects").then((response) => {
                 var projects = response.data;
                 projects.forEach(element => {
                     var start = element.created_at.split("/").join("/").slice(0, 10);
@@ -322,8 +339,8 @@ class Calendar extends Component {
             console.log("enterprise Email", enterpriseEmail)
                 var config2 = {
                     method: 'get',
-                    //url: `http://192.168.100.232:3001/user-projects-email/${this.state.first_name}`,
-                    url: `http://192.168.100.232:3001/user-projects/${this.state.first_name}`,
+                    //url: `https://frozen-temple-16675.herokuapp.com/user-projects-email/${this.state.first_name}`,
+                    url: `https://frozen-temple-16675.herokuapp.com/user-projects/${this.state.first_name}`,
                 };
                   
                 Axios(config2)
@@ -495,9 +512,11 @@ class Calendar extends Component {
             } 
         }
 
-        Axios.post("http://192.168.100.232:3001/create-project" , formData, config)
+        Axios.post("https://frozen-temple-16675.herokuapp.com/create-project" , formData, config)
         .then(response => {
             window.location.reload();
+           // window.location.href= window.location;
+            
         })
         .catch(error => {
             console.log(error);
@@ -506,7 +525,7 @@ class Calendar extends Component {
         this.hideModal();
         this.setState({currentStep: 1});
 
-        //window.location.href = '/projects';
+       // window.location.href = '/calendars';
 
     }
 
@@ -1133,7 +1152,7 @@ class Calendar extends Component {
                         });
                         var config = {
                           method: 'put',
-                          url: 'http://192.168.100.232:3001/move-project',
+                          url: 'https://frozen-temple-16675.herokuapp.com/move-project',
                           headers: { 
                             'Content-Type': 'application/x-www-form-urlencoded'
                           },
@@ -1184,7 +1203,7 @@ class Calendar extends Component {
                                 });
                                 var config = {
                                   method: 'put',
-                                  url: 'http://192.168.100.232:3001/move-project',
+                                  url: 'https://frozen-temple-16675.herokuapp.com/move-project',
                                   headers: { 
                                     'Content-Type': 'application/x-www-form-urlencoded'
                                   },

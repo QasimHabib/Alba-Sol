@@ -153,7 +153,7 @@ class ForgotPassword extends Component {
 
         const login = () => {
             const { email } = this.state;
-            Axios.put("http://192.168.100.232:3001/reset-password", {
+            Axios.put("https://frozen-temple-16675.herokuapp.com/reset-password", {
                 email: this.state.email,
             }).then((response) => {
                 this.setState({loginStatus: response.data});
