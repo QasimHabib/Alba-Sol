@@ -301,7 +301,7 @@ class Calendar extends Component {
         var enterpriseEmail = localStorage.getItem('loginToken');
 
         if(userType === 'ADMIN') {
-            Axios.get("https://frozen-temple-16675.herokuapp.com/projects").then((response) => {
+            Axios.get("https://frozen-temple-16675.herokuapp.com/projects-no-limit").then((response) => {
                 var projects = response.data;
                 projects.forEach(element => {
                     var start = element.created_at.split("/").join("/").slice(0, 10);
@@ -407,6 +407,7 @@ class Calendar extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        this.setState({isLoaded: false})
 
         var compareDate;
 

@@ -20,6 +20,7 @@ import { villes } from "./villes.js";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { retriveClients, retriveProject, retriveTotalProjects, retriveUsers } from '../api/apiRequests';
+import Loader from "../components/LoaderSpinner";
 import api from '../api/api'
 var trigger = true
 class Projects extends Component {
@@ -110,7 +111,8 @@ class Projects extends Component {
         created_at: new Date().toJSON().slice(0, 10),
         etat_projet: 0,
         remarques: "",
-        admin1: ""
+        admin1: "",
+        isLoaded: false,
     }
    
 
@@ -265,6 +267,7 @@ class Projects extends Component {
             const totalProjects = await retriveTotalProjects()
                 this.setState({ projectsList: totalProjects });
                 this.setState({totalProjects: totalProjects.length})
+                this.setState({isLoaded: true})
                 // setProjectsList(response.data);
                 //setShow(!show);  
                 console.log(totalProjects);
@@ -276,6 +279,7 @@ class Projects extends Component {
             const project= await retriveProject(this.state.first_name)
                 this.setState({ projectsList: project });
                 console.log("data is:", project)
+                this.setState({isLoaded: true})
               
           
             
@@ -302,6 +306,7 @@ class Projects extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        this.setState({isLoaded: false})
 
         var compareDate;
 
@@ -405,6 +410,7 @@ class Projects extends Component {
         Axios.post("https://frozen-temple-16675.herokuapp.com/create-project", formData, config)
             .then(response => {
                 console.log(response);
+                
                 this.getProjects()
               //  window.location.reload();
                 
@@ -1248,7 +1254,8 @@ class Projects extends Component {
                             onClick={this.state.currentStep === 4 ? this.onSubmit : nextStep}>{this.state.currentStep === 4 ? "Valider" : "Suivant"}</button>
                     </Modal.Footer>
                 </Modal>
-                <div className="main" style={{ width: '100%' }}>
+                {!this.state.isLoaded ? <Loader />
+                :(<div className="main" style={{ width: '100%' }}>
                     <div className="container" style={{ maxWidth: '80%', marginLeft: '16%' }}>
                         <div className="row pt-4 pb-3">
                             <div className="col-md-10">
@@ -1523,7 +1530,7 @@ class Projects extends Component {
                             />}
                     </div>
 
-                </div>
+                </div>)}
 
             </Auxiliary>
         );
